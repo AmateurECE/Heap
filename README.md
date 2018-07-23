@@ -106,3 +106,8 @@ of type `int`.
 
 This is a macro which expands to `(int)0` if the Heap is empty, and `(int)1`
 otherwise.
+
+`int Heap_isMin(Heap * heap)`
+
+This is a macro which expands to `(int)1` if the Heap is a Min Heap, and
+`(int)0` otherwise.
