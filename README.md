@@ -60,22 +60,30 @@ data will be placed upon successful completion of this call.
 `Heap * Heap_createMin(void (*destroy)(void *),
 int (*compare)(void *, void *))`
 
+`int Heap_createMin(Heap * heap, void (*destroy)(void *),
+int (*compare)(void *, void *), size_t len, void * (*workspace)[len])`
+
 Create an empty Min Heap. If an error occurs during the call, `NULL` is
 returned. The argument `destroy` is a pointer to a function which frees user
 data when it is no longer necessary. It takes a pointer to the user data. The
 function `compare` compares two user data (passed as arguments), returning -1
 if the first is greater, 0 if they are the same, and 1 if the second is
-greater.
+greater. The second prototype will only be compiled if `CONFIG_NO_HEAP` is
+defined at compilation time.
 
 `Heap * Heap_createMax(void (*destroy)(void *),
 int (*compare)(void *, void *))`
+
+`int Heap_createMax(Heap * heap, void (*destroy)(void *),
+int (*compare)(void *, void *), size_t len, void * (*workspace)[len])`
 
 Create an empty Max Heap. If an error occurs during the call, `NULL` is
 returned. The argument `destroy` is a pointer to a function which frees user
 data when it is no longer necessary. It takes a pointer to the user data. The
 function `compare` compares two user data (passed as arguments), returning -1
 if the first is greater, 0 if they are the same, and 1 if the second is
-greater.
+greater. The second prototype will only be compiled if `CONFIG_NO_HEAP` is
+defined at compilation time.
 
 `void Heap_destroy(Heap * heap)`
 
